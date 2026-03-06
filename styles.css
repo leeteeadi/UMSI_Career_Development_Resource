@@ -1,0 +1,501 @@
+/* Drafted and styled with code from the University of Michigan Website, UMSI Website, UMSI Career Development Website, AI assistance with inline comments, and w3schools.com/css */
+
+/* Theme variables
+:root stores reusable design tokens (colors, spacing, shadow, radius, and max width). Changing these values updates the site's look consistently across all pages. */
+:root {
+  --um-blue: #00274c; /* Primary brand blue for headers, links, footer */
+  --um-blue-2: #0d3b66; /* Slightly lighter blue used in header gradient */
+  --um-maize: #ffcb05; /* Accent color for buttons, highlights, focus areas */
+  --ink: #102a43; /* Dark heading color inside content sections */
+  --text: #1f2933; /* Default body text color */
+  --muted: #52606d; /* Softer text color for secondary information */
+  --surface: #f7f9fc; /* Light page background for the main content area */
+  --border: #d9e2ec; /* Shared border color for cards and sections */
+  --white: #ffffff; /* Pure white for backgrounds and contrast */
+  --focus: #8bd3ff; /* High-visibility focus outline color */
+  --shadow: 0 10px 24px rgba(16, 42, 67, 0.08); /* Reusable soft shadow for depth */
+  --radius: 16px; /* Shared rounded corner size */
+  --max: 1120px; /* Maximum readable content width */
+}
+
+/* Global box model reset
+Applies border-box sizing to every element so padding and borders are included inside the element's set width/height. This makes layout sizing more predictable. */
+* {
+  box-sizing: border-box;
+}
+
+/* Document scroll behavior
+Smooths anchor-link jumps (like skip links) for a more polished navigation experience. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base page styles
+Removes default browser margin, sets a readable font stack, establishes text color, and keeps the overall page clean with a white background. */
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--white);
+}
+
+/* Default image behavior
+Makes images responsive, removes inline-image spacing, and softens image corners for a cleaner look. */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Iframe cleanup
+Removes default browser borders from embedded frames so they visually blend into the site. */
+iframe {
+  border: 0;
+}
+
+/* Global link styling
+Sets the default link color to brand blue. */
+a {
+  color: var(--um-blue);
+}
+
+/* Hover feedback for links
+Makes link underlines slightly thicker when hovered so users get a small but clear interaction cue. */
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Accessible keyboard focus styles
+Gives focused links and buttons a visible outline so keyboard users can always tell where they are on the page. */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Skip link (Accessibility)
+Hidden off-screen by default, this lets keyboard users skip directly to the main content. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  background: var(--um-maize);
+  color: #111827;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+/* When the skip link receives focus, move it into view. */
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Site header
+Uses a blue gradient to create a strong branded banner area that visually separates the header from the main content. */
+.site-header {
+  background: linear-gradient(180deg, var(--um-blue) 0%, var(--um-blue-2) 100%);
+  color: var(--white);
+}
+
+/* Shared content wrappers
+Centers content and limits line length so text stays readable on large screens while preserving side padding on small ones. */
+.header-inner,
+.main-inner,
+.footer-inner {
+  width: min(100% - 2rem, var(--max));
+  margin: 0 auto;
+}
+
+/* Extra header spacing to give the branding and nav room. */
+.header-inner {
+  padding: 1rem 0 2rem;
+}
+
+/* Branding row
+Uses flexbox to align the logo and text neatly, while still allowing wrapping on smaller screens. */
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Logo sizing
+Keeps the logo at a consistent width, removes rounding, and ensures it stays visible against the dark header. */
+.logo {
+  width: 88px;
+  border-radius: 0;
+  background: var(--white);
+}
+
+/* Remove paragraph margins in branding text and keep the text slightly softened against the dark header background. */
+.brand-copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Small label text above the main brand copy.
+Uppercase + letter spacing helps it read like a category tag. */
+.brand-copy .eyebrow {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--um-maize);
+}
+
+/* Navigation container
+Adds separation between the brand row and the nav pills. */
+.site-nav {
+  margin-top: 1rem;
+}
+
+/* Reset list styles and lay nav items out in a wrapping row. */
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Nav link pills
+These look like rounded buttons rather than plain text links, which makes the main navigation more obvious and tappable. */
+.site-nav a {
+  display: inline-block;
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+}
+
+/* Current page + hover state
+Maize highlight helps users see both where they are and what they are hovering over. */
+.site-nav a[aria-current="page"],
+.site-nav a:hover {
+  background: var(--um-maize);
+  color: #111827;
+  border-color: var(--um-maize);
+}
+
+/* Hero area
+Uses CSS Grid so text and image can stack on mobile and sit side-by-side on larger screens. */
+.hero {
+  margin-top: 1.25rem;
+  display: grid;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+/* Large responsive page title.
+clamp() lets the heading scale smoothly across screen sizes. */
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+/* Intro paragraph under the hero heading.
+The max-width keeps line length readable and white text supports the dark header background behind the hero. */
+.hero p {
+  margin: 0 0 1rem;
+  max-width: 65ch;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Action button row in the hero.
+Flex-wrap prevents buttons from overflowing on small screens. */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Shared button-link base style
+Converts normal links into CTA-style buttons with generous padding, rounded corners, and bold text. */
+.button-link {
+  display: inline-block;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 2px solid transparent;
+}
+
+/* Primary CTA button
+Uses maize to stand out strongly against the dark hero/header. */
+.button-link.primary {
+  background: var(--um-maize);
+  color: #111827;
+}
+
+/* Secondary CTA button
+Keeps the background transparent so it feels less dominant, while the light border still makes it visible. */
+.button-link.secondary {
+  background: transparent;
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Hero image styling
+Shared shadow helps the image feel lifted off the background. */
+.hero-image {
+  box-shadow: var(--shadow);
+}
+
+/* Main content area
+Uses a soft off-white background to distinguish the content area from the darker header. */
+main {
+  background: var(--surface);
+}
+
+/* Vertical spacing around all main content sections. */
+.main-inner {
+  padding: 2rem 0 3rem;
+}
+
+/* Content section cards
+White cards with border, radius, and shadow create clear, readable content groupings. */
+.section {
+  background: var(--white);
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Section headings
+Removes default top spacing and uses the darker ink color to create stronger hierarchy. */
+.section h2,
+.section h3 {
+  margin-top: 0;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+/* Remove extra bottom margin from the final text/list element inside a section so card spacing stays even. */
+.section p:last-child,
+.section ul:last-child,
+.section ol:last-child {
+  margin-bottom: 0;
+}
+
+/* Card grid
+A simple grid layout for organizing cards that can expand to multiple columns at larger breakpoints. */
+.card-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Individual card panel
+Lighter than a full section card, used for grouped sub-items. */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  background: #fbfdff;
+}
+
+/* Tighten heading spacing inside cards. */
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Muted card text keeps headings and links visually dominant. */
+.card p {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+/* Shared list indentation
+Gives several list styles the same left padding so they align consistently across pages. */
+.link-list,
+.check-list,
+.faq-list,
+.step-list {
+  padding-left: 1.2rem;
+}
+
+/* Adds vertical breathing room between list items. */
+.link-list li,
+.check-list li,
+.faq-list li,
+.step-list li {
+  margin-bottom: 0.65rem;
+}
+
+/* Quick links grid
+Grid layout for prominent resource tiles. */
+.quick-links {
+  display: grid;
+  gap: 0.75rem;
+}
+
+/* Quick-link tile
+Styled like a clickable resource card with a soft blue tint so important links are easy to spot. */
+.quick-link {
+  display: block;
+  background: #eef4fb;
+  border: 1px solid #c9def2;
+  border-radius: 12px;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--um-blue);
+  font-weight: 700;
+}
+
+/* Secondary description line within quick-link tiles. */
+.quick-link span {
+  display: block;
+  margin-top: 0.3rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* Callout box
+Adds a highlighted note style using a maize accent bar and a pale yellow background to signal importance. */
+.callout {
+  border-left: 6px solid var(--um-maize);
+  background: #fff8d8;
+}
+
+/* Resource list items
+Separates stacked resources with light dividers and controlled spacing for readability. */
+.resource-item {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Remove the final divider so the list ends cleanly. */
+.resource-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Remove extra top padding from the first resource item. */
+.resource-item:first-child {
+  padding-top: 0;
+}
+
+/* Titles and links inside resource items get slight spacing so the text underneath does not feel cramped. */
+.resource-item strong,
+.resource-item a {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+/* Utility class for softer, secondary text anywhere on the page. */
+.muted {
+  color: var(--muted);
+}
+
+/* Footer
+Uses the same strong brand blue as the header to visually bookend the page. */
+.footer {
+  background: var(--um-blue);
+  color: var(--white);
+}
+
+/* Footer padding gives content breathing room and larger tap areas. */
+.footer-inner {
+  padding: 1.5rem 0;
+}
+
+/* Footer links use maize for strong contrast on blue. */
+.footer a {
+  color: var(--um-maize);
+}
+
+/* Footer utility links lay out horizontally and wrap as needed. */
+.utility-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+/* 404 / Not Found page
+Centers the content so error messaging is obvious and easy to understand. */
+.not-found {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Large responsive error heading for strong visual hierarchy. */
+.not-found h1 {
+  font-size: clamp(2.4rem, 7vw, 4rem);
+  margin-bottom: 0.5rem;
+}
+
+/* Constrain paragraph width so the message stays readable. */
+.not-found p {
+  max-width: 60ch;
+  margin: 0.75rem auto;
+}
+
+/* /* Medium-screen breakpoint
+  At 700px and up:
+  - hero becomes two columns
+  - card and quick-link grids become two columns
+  - sections get slightly more internal padding */
+/* @media (min-width: 700px) {
+  .hero {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .card-grid,
+  .quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+} */
+
+/* Large-screen breakpoint
+   At 980px and up:
+   - three-up card grids expand to three columns
+   - quick links expand to four columns
+   - header gets a little more bottom spacing */
+/* @media (min-width: 980px) {
+  .card-grid.three-up {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .quick-links {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .header-inner {
+    padding-bottom: 2.5rem;
+  }
+} */
+
+/* Multi-column grid variant without media queries */
+.card-grid.three-up {
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+
+/* 404 page alignment: replaces removed inline styles (no inline CSS per requirements) */
+.not-found .hero-actions {
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.not-found .utility-list {
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+/* <!-- Drafted and styled with code from the University of Michigan Website, UMSI Website, UMSI Career Development Website, AI assistance with inline definitions and comments, and w3schools.com/css  --> */
