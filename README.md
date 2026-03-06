@@ -11,6 +11,6 @@ Updated project files for the SI 539 client project.
 - Shared mobile-first responsive stylesheet
 
 ## Notes
-- Images are stored in `assets/images/`.
+- Images are stored in `images`.
 - Shared styles are in `assets/styles.css`.
 - The HTML includes a skip link, semantic landmarks, and consistent navigation/footer.
