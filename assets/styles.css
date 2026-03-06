@@ -77,11 +77,14 @@ button:focus-visible {
 }
 
 /* Skip link (Accessibility)
-Hidden off-screen by default, this lets keyboard users skip directly to the main content. */
+Hidden off-screen by default; appears only when focused (first Tab). */
 .skip-link {
   position: absolute;
-  left: 1rem;
-  top: -4rem;
+  left: -999px;       /* hide off-screen */
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
   background: var(--um-maize);
   color: #111827;
   padding: 0.75rem 1rem;
@@ -90,9 +93,14 @@ Hidden off-screen by default, this lets keyboard users skip directly to the main
   text-decoration: none;
 }
 
-/* When the skip link receives focus, move it into view. */
-.skip-link:focus {
+/* Show skip link when keyboard users tab to it */
+.skip-link:focus,
+.skip-link:focus-visible {
+  left: 1rem;
   top: 1rem;
+  width: auto;
+  height: auto;
+  overflow: visible;
 }
 
 /* Site header
