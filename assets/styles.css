@@ -1,4 +1,4 @@
-/* Drafted and styled with code from the University of Michigan Website, UMSI Website, UMSI Career Development Website, AI assistance with inline comments, and w3schools.com/css */
+/* Drafted and styled with code from the University of Michigan Website, UMSI Website, UMSI Career Development Website, AI Google search assistance for questions about styling components, names of styling components, and with inline comments, viewed portfolio code, and w3schools.com/css */
 
 /* Theme variables
 :root stores reusable design tokens (colors, spacing, shadow, radius, and max width). Changing these values updates the site's look consistently across all pages. */
@@ -432,8 +432,7 @@ Uses the same strong brand blue as the header to visually bookend the page. */
   margin: 0.75rem 0 0;
 }
 
-/* 404 / Not Found page
-Centers the content so error messaging is obvious and easy to understand. */
+/* 404 / Not Found page centers the content so error messaging is obvious and easy to understand. */
 .not-found {
   text-align: center;
   padding: 2rem;
@@ -451,53 +450,14 @@ Centers the content so error messaging is obvious and easy to understand. */
   margin: 0.75rem auto;
 }
 
-/* /* Medium-screen breakpoint
-  At 700px and up:
-  - hero becomes two columns
-  - card and quick-link grids become two columns
-  - sections get slightly more internal padding */
-/* @media (min-width: 700px) {
-  .hero {
-    grid-template-columns: 1.2fr 1fr;
-  }
-
-  .card-grid,
-  .quick-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .section {
-    padding: 1.5rem;
-  }
-} */
-
-/* Large-screen breakpoint
-   At 980px and up:
-   - three-up card grids expand to three columns
-   - quick links expand to four columns
-   - header gets a little more bottom spacing */
-/* @media (min-width: 980px) {
-  .card-grid.three-up {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .quick-links {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .header-inner {
-    padding-bottom: 2.5rem;
-  }
-} */
-
-/* Multi-column grid variant without media queries */
+/* Multi-column grid variant */
 .card-grid.three-up {
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
 }
 
-
-/* 404 page alignment: replaces removed inline styles (no inline CSS per requirements) */
+/* 404 page alignment  */
 .not-found .hero-actions {
+  display: flex;
   justify-content: center;
   margin-top: 1rem;
 }
