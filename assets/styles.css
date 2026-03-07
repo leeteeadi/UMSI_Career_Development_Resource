@@ -459,6 +459,7 @@ Uses the same strong brand blue as the header to visually bookend the page. */
 .not-found .hero-actions {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 1rem;
 }
 
