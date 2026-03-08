@@ -273,8 +273,8 @@ main {
 White cards with border, radius, and shadow create clear, readable content groupings. */
 .section {
   background: var(--white);
-  margin-bottom: 1.25rem;
-  padding: 1.25rem;
+  margin-bottom: 1rem;
+  padding: 1.1rem 1.25rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -284,7 +284,7 @@ White cards with border, radius, and shadow create clear, readable content group
 Removes default top spacing and uses the darker ink color to create stronger hierarchy. */
 .section h2,
 .section h3 {
-  margin-top: 0;
+  margin: 0 0 0.75rem;
   color: var(--ink);
   line-height: 1.25;
 }
@@ -354,7 +354,7 @@ Styled like a clickable resource card with a soft blue tint so important links a
   background: #eef4fb;
   border: 1px solid #c9def2;
   border-radius: 12px;
-  padding: 1rem;
+  padding: 0.85rem 1rem;
   text-decoration: none;
   color: var(--um-blue);
   font-weight: 700;
@@ -363,7 +363,7 @@ Styled like a clickable resource card with a soft blue tint so important links a
 /* Secondary description line within quick-link tiles. */
 .quick-link span {
   display: block;
-  margin-top: 0.3rem;
+  margin-top: 0.2rem;
   font-weight: 400;
   color: var(--muted);
 }
