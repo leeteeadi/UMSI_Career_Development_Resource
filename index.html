@@ -119,22 +119,23 @@
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="footer-inner">
-      <p><strong>University of Michigan School of Information</strong> | Career Development Resource Hub</p>
-      <p>© Copyright Regents of the University of Michigan <span id="year"></span> by CodexWorld. All rights reserved.</p>
-      <ul class="utility-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="networking.html">Networking</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="https://umich.instructure.com/courses/137916">UMSI Career Development Office</a></li>
-      </ul>
-    </div>
-  </footer>
-  <script src="assets/script.js"></script>
-  <script>
-  document.getElementById("year").innerHTML = new Date().getFullYear();
-  </script>
+<footer class="footer">
+  <div class="footer-inner">
+    <p><strong>University of Michigan School of Information</strong> | Career Development Resource Hub</p>
+    <p>© Regents of the University of Michigan <span id="year"></span>. All rights reserved.</p>
+    <ul class="utility-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="networking.html">Networking</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="https://umich.instructure.com/courses/137916">UMSI Career Development Office</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
