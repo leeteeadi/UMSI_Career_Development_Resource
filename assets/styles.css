@@ -18,7 +18,7 @@
   --shadow: 0 12px 32px rgba(0, 39, 76, 0.12);
   --radius: 18px;
   --max: 1120px;
-  --content: 1152px;
+  --content: 1320px;
 }
 
 /* Global box model reset
@@ -117,7 +117,7 @@ Centers content and limits line length so text stays readable on large screens w
 .header-inner,
 .main-inner,
 .footer-inner {
-  width: min(calc(100% - 32px), var(--content));
+  width: min(calc(100% - 16px), var(--content));
   margin: 0 auto;
 }
 
@@ -630,7 +630,7 @@ Uses the same strong brand blue as the header to visually bookend the page. */
   .header-inner,
   .main-inner,
   .footer-inner {
-    width: min(calc(100% - 48px), 1248px);
+    width: min(calc(100% - 24px), 1320px);
   }
 
   .header-inner {
