@@ -508,8 +508,9 @@ Uses the same strong brand blue as the header to visually bookend the page. */
 /* Footer utility links lay out horizontally and wrap as needed. */
 .utility-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
   list-style: none;
   padding: 0;
   margin: 12px 0 0;
@@ -517,7 +518,7 @@ Uses the same strong brand blue as the header to visually bookend the page. */
 
 .utility-list a {
   display: inline-block;
-  padding: 3px 0;
+  padding: 0;
 }
 
 .footer-grid {
