@@ -694,5 +694,38 @@ Uses the same strong brand blue as the header to visually bookend the page. */
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+.card-grid {
+  grid-template-columns: 1fr;
+}
 
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(23, 33, 43, 0.12);
+}
+
+.section {
+  padding: 24px;
+}
+
+.section p,
+.section li {
+  max-width: 70ch;
+}
+
+@media (min-width: 700px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 980px) {
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
 /* <!-- Drafted and styled with code from the University of Michigan Website, UMSI Website, UMSI Career Development Website, AI assistance with inline definitions and comments, and w3schools.com/css  --> */
