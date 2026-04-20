@@ -134,6 +134,31 @@
           </article>
         </div>
       </section>
+      <section class="section">
+        <h2>Share feedback about this resource hub</h2>
+      
+        <form id="feedback-form" novalidate>
+          <p>
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name">
+          </p>
+      
+          <p>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email">
+          </p>
+      
+          <p>
+            <label for="message">Message</label><br>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </p>
+      
+          <button type="submit" class="button-link primary">Submit feedback</button>
+          <p id="form-status" aria-live="polite"></p>
+        </form>
+      </section>
+
+<script src="assets/form.js"></script>
     </div>
   </main>
 
